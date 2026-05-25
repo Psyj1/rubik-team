@@ -1,49 +1,54 @@
-// src/components/layout/Header.tsx
+// src/components/layout/Header.tsx - versão inspirada no site
 import { colors } from "../../styles/colors";
+import { useState } from "react";
 
 export function Header() {
+  const [hovered, setHovered] = useState<string | null>(null);
+
+  const navItems = ["Projects", "Blog", "Learn", "Cloneme", "Find me"];
+
   return (
     <header style={{
-        backgroundColor: colors.gray900,
-        borderBottom: `1px solid ${colors.gray200}`,
-        padding: "1rem 4rem",  // ← mesma medida da Hero
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-}}>
+      padding: "1rem 4rem",
+      backgroundColor: colors.white,
+      borderBottom: `1px solid ${colors.gray200}`,
+      position: "sticky",
+      top: 0,
+      zIndex: 100,
+    }}>
       <div style={{
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        // tira o maxWidth daqui também
+        maxWidth: "1400px",
+        margin: "0 auto",
       }}>
-        <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
-          <span style={{ color: colors.red }}>R</span>
-          <span style={{ color: colors.yellow }}>u</span>
-          <span style={{ color: colors.blue }}>b</span>
-          <span style={{ color: colors.redLight }}>i</span>
-          <span style={{ color: colors.yellowLight }}>k</span>
-          <span style={{ color: colors.gray400 }}>//</span>
-          <span style={{ color: colors.gray300, fontSize: "1rem" }}>team</span>
-        </div>
-
+        {/* Logo estilo "Hello. I'm Rubik" */}
+         <img 
+          src="logo.png"  // ou .svg, .webp
+          alt="Rubik Team Logo"
+          style={{
+            height: "40px",  // ajusta conforme sua logo
+            width: "auto",
+            display: "block",
+          }}
+        />
+        {/* Navegação estilo Mac (links simples) */}
         <nav style={{ display: "flex", gap: "2rem" }}>
-          {["Sobre Nós", "Equipe", "Projetos", "Contato"].map((item) => (
+          {navItems.map((item) => (
             <a
               key={item}
               href="#"
               style={{
-                color: colors.gray300,
+                color: hovered === item ? colors.red : colors.gray600,
                 textDecoration: "none",
+                fontSize: "1rem",
                 transition: "color 0.2s",
-                fontFamily: "Inter",
+                padding: "0.25rem 0",
+                borderBottom: hovered === item ? `2px solid ${colors.red}` : "none",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = colors.yellow)
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = colors.gray300)
-              }
+              onMouseEnter={() => setHovered(item)}
+              onMouseLeave={() => setHovered(null)}
             >
               {item}
             </a>

@@ -18,6 +18,7 @@ export const colors = {
   // Neutros (mantém)
   white: "#FFFFFF",
   black: "#0A0A0A",
+  gray50: "#F9FAFB",
   gray100: "#F5F5F5",
   gray200: "#E5E5E5",
   gray300: "#D4D4D4",
