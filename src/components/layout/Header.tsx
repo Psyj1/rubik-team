@@ -3,25 +3,20 @@ import { colors } from "../../styles/colors";
 
 export function Header() {
   return (
-    <header
-      style={{
+    <header style={{
         backgroundColor: colors.gray900,
-        borderBottom: `1px solid ${colors.gray800}`,
-        padding: "1rem 2rem",
+        borderBottom: `1px solid ${colors.gray200}`,
+        padding: "1rem 4rem",  // ← mesma medida da Hero
         position: "sticky",
         top: 0,
         zIndex: 100,
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+}}>
+      <div style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        // tira o maxWidth daqui também
+      }}>
         <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
           <span style={{ color: colors.red }}>R</span>
           <span style={{ color: colors.yellow }}>u</span>

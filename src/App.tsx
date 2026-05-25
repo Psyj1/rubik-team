@@ -5,12 +5,11 @@ import { colors } from "./styles/colors";
 
 function App() {
   return (
-    <div
-      style={{
-        backgroundColor: colors.white,
-        minHeight: "100vh",
-      }}
-    >
+    <div style={{
+      backgroundColor: colors.white,
+      minHeight: "100vh",
+      width: "100%",  // ← força 100% da largura
+    }}>
       <Header />
       <HeroSection />
     </div>
