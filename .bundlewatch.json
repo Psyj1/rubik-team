@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "path": "./dist/**/*.js",
+      "maxSize": "100 kb"
+    },
+    {
+      "path": "./dist/**/*.css",
+      "maxSize": "50 kb"
+    }
+  ],
+  "ci": {
+    "trackBranches": ["main"],
+    "prComments": true
+  }
+}
