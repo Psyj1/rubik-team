@@ -29,3 +29,28 @@ export const colors = {
   gray800: "#262626",
   gray900: "#171717",
 } as const;
+
+// Alternativas prontas baseadas na sua paleta
+export const alternatePalettes = {
+  // Mais escuro (modo "noturno retrô")
+  dark: {
+    background: colors.gray900,
+    surface: colors.gray800,
+    text: colors.gray100,
+    accent: colors.yellow,
+  },
+  // Mais claro/arejado (padrão Mac)
+  light: {
+    background: colors.white,
+    surface: colors.gray50,
+    text: colors.gray900,
+    accent: colors.red,
+  },
+  // Destaque azul (mais "tech")
+  tech: {
+    background: colors.gray50,
+    surface: colors.white,
+    text: colors.gray800,
+    accent: colors.blue,
+  },
+};

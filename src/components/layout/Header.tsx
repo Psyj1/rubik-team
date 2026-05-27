@@ -1,4 +1,4 @@
-// src/components/layout/Header.tsx - versão inspirada no site
+// src/components/layout/Header.tsx - versão retrô com borda preta
 import { colors } from "../../styles/colors";
 import { useState } from "react";
 
@@ -9,9 +9,9 @@ export function Header() {
 
   return (
     <header style={{
-      padding: "1rem 4rem",
+      padding: "1rem 2rem",
       backgroundColor: colors.white,
-      borderBottom: `1px solid ${colors.gray200}`,
+      borderBottom: `2px solid ${colors.black}`,  // Borda PRETA e mais grossa
       position: "sticky",
       top: 0,
       zIndex: 100,
@@ -20,32 +20,35 @@ export function Header() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        maxWidth: "1400px",
+        maxWidth: "1200px",
         margin: "0 auto",
       }}>
-        {/* Logo estilo "Hello. I'm Rubik" */}
-         <img 
-          src="logo.png"  // ou .svg, .webp
-          alt="Rubik Team Logo"
-          style={{
-            height: "40px",  // ajusta conforme sua logo
-            width: "auto",
-            display: "block",
-          }}
-        />
-        {/* Navegação estilo Mac (links simples) */}
+        {/* Logo ou texto estilo retrô */}
+        <div style={{
+          fontFamily: "'Madimi One', monospace",
+          fontSize: "1.25rem",
+          fontWeight: 400,
+          color: colors.black,
+          letterSpacing: "-0.5px",
+        }}>
+          <span style={{ color: colors.red }}>✦</span> rubik
+        </div>
+
+        {/* Navegação estilo Mac (links simples, negrito, borda preta no hover) */}
         <nav style={{ display: "flex", gap: "2rem" }}>
           {navItems.map((item) => (
             <a
               key={item}
               href="#"
               style={{
-                color: hovered === item ? colors.red : colors.gray600,
+                color: hovered === item ? colors.red : colors.gray700,
                 textDecoration: "none",
-                fontSize: "1rem",
-                transition: "color 0.2s",
+                fontSize: "0.9rem",
+                fontWeight: 600,  // NEGRITO
+                fontFamily: "'Madimi One', monospace",
+                transition: "all 0.15s ease",
                 padding: "0.25rem 0",
-                borderBottom: hovered === item ? `2px solid ${colors.red}` : "none",
+                borderBottom: hovered === item ? `2px solid ${colors.black}` : "2px solid transparent",
               }}
               onMouseEnter={() => setHovered(item)}
               onMouseLeave={() => setHovered(null)}

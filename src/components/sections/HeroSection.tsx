@@ -1,83 +1,139 @@
-// src/components/sections/HeroSection.tsx - versão Mac + Rubik
+// src/components/sections/HeroSection.tsx
 import { colors } from "../../styles/colors";
-import { Button } from "../common/Button";
 
 export function HeroSection() {
   return (
     <section style={{
-      padding: "6rem 4rem",
-      maxWidth: "1400px",
+      padding: "4rem 2rem",
+      maxWidth: "1126px",
       margin: "0 auto",
+      textAlign: "left",
     }}>
       <div style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
-        gap: "4rem",
+        gap: "3rem",
         alignItems: "center",
       }}>
-        {/* Lado esquerdo - texto */}
         <div>
+          <div style={{
+            display: "inline-block",
+            backgroundColor: "var(--code-bg)",
+            padding: "0.25rem 0.6rem",
+            fontSize: "0.75rem",
+            fontFamily: "var(--mono)",
+            color: "var(--text)",
+            marginBottom: "1.5rem",
+          }}>
+            ✦ equipe rubik
+          </div>
+
           <h1 style={{
-            fontSize: "4rem",
-            fontWeight: 700,
-            color: colors.gray900,
-            marginBottom: "1rem",
+            fontFamily: "'Madimi One', var(--heading)",
+            fontSize: "clamp(2.2rem, 7vw, 3.8rem)",
+            fontWeight: 400,
+            margin: "0 0 1rem 0",
+            lineHeight: 1.2,
+            letterSpacing: "-0.02em",
+            wordBreak: "break-word",
+            whiteSpace: "normal",
+            maxWidth: "100%",
+            color: "var(--text-h)",
           }}>
             <span style={{ color: colors.red }}>Hello.</span>
             <br />
             <span>We're </span>
             <span style={{ color: colors.blue }}>Rubik</span>
-            <span style={{ color: colors.gray900 }}>.</span>
+            <span>.</span>
           </h1>
+
           <p style={{
-            fontSize: "1.2rem",
-            color: colors.gray600,
-            marginBottom: "2rem",
-            lineHeight: 1.6,
+            fontSize: "1rem",
+            color: "var(--text)",
+            fontFamily: "var(--sans)",
+            marginBottom: "0.5rem",
           }}>
             Uma equipe que desenvolve soluções em IoT, Visão Computacional e DevOps.
-            Transformamos ideias em projetos que funcionam.
           </p>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button variant="red">Clone no GitHub →</Button>
-            <Button variant="blue">Nossos projetos</Button>
-          </div>
+
+          <p style={{
+            fontSize: "0.85rem",
+            color: "var(--text)",
+            opacity: 0.7,
+            marginBottom: "2rem",
+            fontFamily: "var(--mono)",
+          }}>
+            transformamos ideias em projetos que funcionam.
+          </p>
+
+          {/* Botão estilo retrô QUADRADO */}
+          <button style={{
+            backgroundColor: "transparent",
+            color: "var(--text-h)",
+            border: `1px solid var(--text-h)`,
+            padding: "0.5rem 1.2rem",
+            borderRadius: "0",
+            fontSize: "0.8rem",
+            fontFamily: "var(--mono)",
+            cursor: "pointer",
+            transition: "all 0.15s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "var(--text-h)";
+            e.currentTarget.style.color = "var(--bg)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "transparent";
+            e.currentTarget.style.color = "var(--text-h)";
+          }}>
+            Clone no GitHub →
+          </button>
         </div>
 
-        {/* Lado direito - cubo ilustrativo */}
-        <div style={{
-          backgroundColor: colors.gray100,
-          borderRadius: "24px",
-          padding: "2rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          aspectRatio: "1 / 1",
-        }}>
+        {/* Lado direito - cubo com as cores CERTAS da equipe */}
+        <div style={{ position: "relative" }}>
           <div style={{
-            width: "200px",
-            height: "200px",
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "8px",
+            backgroundColor: "var(--code-bg)",
+            padding: "2rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            aspectRatio: "1 / 1",
+            border: `1px solid var(--border)`,
           }}>
-            {[...Array(9)].map((_, i) => {
-              const gridColors = [
-                colors.red, colors.blue, colors.yellow,
-                colors.yellow, colors.red, colors.blue,
-                colors.blue, colors.yellow, colors.red
-              ];
-              return (
-                <div key={i} style={{
-                  backgroundColor: gridColors[i],
-                  borderRadius: "12px",
-                  aspectRatio: "1 / 1",
-                }} />
-              );
-            })}
+            <div style={{
+              width: "200px",
+              height: "200px",
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "8px",
+            }}>
+              {[...Array(9)].map((_, i) => {
+                // AQUI ESTÃO AS CORES CERTAS DA EQUIPE: vermelho, azul, amarelo
+                const gridColors = [
+                  colors.red, colors.blue, colors.yellow,
+                  colors.yellow, colors.red, colors.blue,
+                  colors.blue, colors.yellow, colors.red
+                ];
+                return (
+                  <div key={i} style={{
+                    backgroundColor: gridColors[i],
+                  }} />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
