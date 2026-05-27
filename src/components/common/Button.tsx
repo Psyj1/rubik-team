@@ -9,12 +9,7 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-export function Button({
-  children,
-  variant = "red",
-  href,
-  onClick,
-}: ButtonProps) {
+export function Button({ children, variant = "red", href, onClick }: ButtonProps) {
   const [isActive, setIsActive] = useState(false);
 
   const variantMap = {

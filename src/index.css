@@ -1,13 +1,13 @@
 /* src/index.css - versão FULL MADIMI */
 
-@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&display=swap");
 
 :root {
   /* Só uma fonte pra GOVERNAR TODOS */
-  --sans: 'Madimi One', system-ui, "Segoe UI", Roboto, sans-serif;
-  --heading: 'Madimi One', system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: 'Madimi One', "Courier New", monospace; 
-  
+  --sans: "Madimi One", system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: "Madimi One", system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: "Madimi One", "Courier New", monospace;
+
   /* Resto das variáveis continua igual */
   --text: #6b6375;
   --text-h: #08060d;
@@ -22,6 +22,17 @@ body {
   font-family: var(--sans); /* Madimi One no corpo inteiro */
 }
 
-h1, h2, h3, h4, p, button, a, span, div, li, input, textarea {
-  font-family: 'Madimi One', sans-serif;
+h1,
+h2,
+h3,
+h4,
+p,
+button,
+a,
+span,
+div,
+li,
+input,
+textarea {
+  font-family: "Madimi One", sans-serif;
 }
