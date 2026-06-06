@@ -1,21 +1,23 @@
-// src/App.tsx
-import { Header } from "./components/layout/Header.tsx";
+// src/App.tsx ou src/pages/Home.tsx
 import { HeroSection } from "./components/sections/HeroSection";
-
-import { colors } from "./styles/colors";
+import { QuickLinksSection } from "./components/sections/QuickLinksSection.tsx";
+import { AboutSection } from "./components/sections/AboutSection";
+import { MembersSection } from "./components/sections/MembersSection";
+import { ProjectsSection } from "./components/sections/ProjectSection.tsx";
+import { Footer } from "./components/layout/Footer";
+import { Header } from "./components/layout/Header.tsx";
 
 function App() {
   return (
-    <div
-      style={{
-        backgroundColor: colors.white,
-        minHeight: "100vh",
-        width: "100%", // ← força 100% da largura
-      }}
-    >
+    <main>
       <Header />
       <HeroSection />
-    </div>
+      <QuickLinksSection />
+      <AboutSection />
+      <MembersSection />
+      <ProjectsSection />
+      <Footer />
+    </main>
   );
 }
 

@@ -2,6 +2,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Madimi+One&display=swap");
 
+
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Só uma fonte pra GOVERNAR TODOS */
   --sans: "Madimi One", system-ui, "Segoe UI", Roboto, sans-serif;

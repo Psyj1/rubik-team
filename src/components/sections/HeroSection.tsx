@@ -1,7 +1,13 @@
-// src/components/sections/HeroSection.tsx
 import { colors } from "../../styles/colors";
+import { useState } from "react";
 
 export function HeroSection() {
+  const [imgError, setImgError] = useState(false);
+
+  const scrollToAbout = () => {
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       style={{
@@ -31,7 +37,7 @@ export function HeroSection() {
               marginBottom: "1.5rem",
             }}
           >
-            ✦ equipe rubik
+            ✦ Rubik
           </div>
 
           <h1
@@ -48,9 +54,9 @@ export function HeroSection() {
               color: "var(--text-h)",
             }}
           >
-            <span style={{ color: colors.red }}>Hello.</span>
+            <span style={{ color: colors.red }}>Olá</span>
             <br />
-            <span>We're </span>
+            <span>Nós somos a </span>
             <span style={{ color: colors.blue }}>Rubik</span>
             <span>.</span>
           </h1>
@@ -78,8 +84,8 @@ export function HeroSection() {
             transformamos ideias em projetos que funcionam.
           </p>
 
-          {/* Botão estilo retrô QUADRADO */}
           <button
+            onClick={scrollToAbout}
             style={{
               backgroundColor: "transparent",
               color: "var(--text-h)",
@@ -100,55 +106,51 @@ export function HeroSection() {
               e.currentTarget.style.color = "var(--text-h)";
             }}
           >
-            Clone no GitHub →
+            Saiba Mais →
           </button>
         </div>
 
-        {/* Lado direito - cubo com as cores CERTAS da equipe */}
         <div style={{ position: "relative" }}>
           <div
             style={{
-              backgroundColor: "var(--code-bg)",
+              backgroundColor: "transparent",
               padding: "2rem",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               aspectRatio: "1 / 1",
-              border: `1px solid var(--border)`,
             }}
           >
-            <div
-              style={{
-                width: "200px",
-                height: "200px",
-                display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
-                gap: "8px",
-              }}
-            >
-              {[...Array(9)].map((_, i) => {
-                // AQUI ESTÃO AS CORES CERTAS DA EQUIPE: vermelho, azul, amarelo
-                const gridColors = [
-                  colors.red,
-                  colors.blue,
-                  colors.yellow,
-                  colors.yellow,
-                  colors.red,
-                  colors.blue,
-                  colors.blue,
-                  colors.yellow,
-                  colors.red,
-                ];
-                return (
-                  <div
-                    key={i}
-                    style={{
-                      backgroundColor: gridColors[i],
-                    }}
-                  />
-                );
-              })}
-            </div>
+            {!imgError ? (
+              <img
+                src="/BashBoy.png"
+                alt="Bash Boy - Mascote Rubik"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                }}
+                onError={() => setImgError(true)}
+              />
+            ) : (
+              <div
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <span style={{ fontSize: "4rem" }}>🐧</span>
+                <p
+                  style={{
+                    fontSize: "0.7rem",
+                    fontFamily: "var(--mono)",
+                    color: "var(--text)",
+                    marginTop: "0.5rem",
+                  }}
+                >
+                  Bash Boy
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
